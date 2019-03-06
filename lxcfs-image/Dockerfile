@@ -8,7 +8,7 @@ RUN mkdir /output && cp /lxcfs/lxcfs /output && cp /lxcfs/.libs/liblxcfs.so /out
 
 FROM centos:7
 STOPSIGNAL SIGINT
-ADD start.sh /
+ADD start.sh stop.sh /
 COPY --from=build /output/lxcfs /usr/local/bin/lxcfs
 COPY --from=build /output/liblxcfs.so /usr/local/lib/lxcfs/liblxcfs.so
 COPY --from=build /usr/lib64/libfuse.so.2.9.2 /usr/lib64/libfuse.so.2.9.2
