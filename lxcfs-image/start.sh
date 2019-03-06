@@ -7,6 +7,7 @@ nsenter -m/proc/1/ns/mnt [ -L /etc/mtab ] || \
 
 # Prepare
 mkdir -p /usr/local/lib/lxcfs /var/lib/lxcfs
+rm -rf /var/lib/lxcfs/*
 
 # Mount
-exec nsenter -m/proc/1/ns/mnt lxcfs /var/lib/lxcfs/
+lxcfs /var/lib/lxcfs/
