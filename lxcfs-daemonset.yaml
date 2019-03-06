@@ -25,12 +25,9 @@ spec:
           privileged: true
         terminationMessagePolicy: FallbackToLogsOnError
         lifecycle:
-          postStart:
+          preStop:
             exec:
-              command:
-              - sh
-              - -c
-              - "/stop.sh"
+              command: ["/stop.sh"]
         volumeMounts:
         - name: cgroup
           mountPath: /sys/fs/cgroup
